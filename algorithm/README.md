@@ -115,7 +115,7 @@ mmseg分词核心包括以下几个模块：
 		};
 
 		std::vector<Chunk> m_chunks;
-
+foldmethod
 ```
 ```
 	size_t commonPrefixSearch(const key_type *key,
@@ -151,6 +151,7 @@ mmseg分词核心包括以下几个模块：
           return num;
 		}
       }
+foldmethod
 ```
 
 分词模块 **MMThunk** 主要包括以下接口：
