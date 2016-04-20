@@ -25,7 +25,7 @@ mmseg分词核心包括以下几个模块：
 ####1、元组
 >元组（Chunk）：mmseg 以三个连续的分词为一个元组，最核心成员变量为vector<u2\> tokens，u2可以看成uint 主要表示的单词的长度，里面存储的是，连续三个或小于三个（当一句话由两个词组成，或者本身就是一个单词）的分词长度。
 
-```
+```c
 	class Chunk
 	{
 		inline void pushToken(u2 len, u2 freq)  
@@ -50,7 +50,7 @@ mmseg分词核心包括以下几个模块：
 长\_春\_市长`chunk:tokens<1,1,2>`
 
 >那么队列中 chunkQueue 的元组就为`[<3,2,2>, <3,1,2>,<2,2,2>,<2,1,2>,<1,1,2>]` 这些元组都是以这句话的开始“长”开始计算的，如果是很长的整篇文怎么办呢？（这个以后会继续讲），而chunkQueue中最重要的方法就是getToken了，其功能就是应用上面的四条规则去获取当前起始位置的一个分词： 
-```
+```c
 
 	u2 getToken()
 	{
@@ -117,7 +117,7 @@ mmseg分词核心包括以下几个模块：
 		std::vector<Chunk> m_chunks;
 foldmethod
 ```
-```
+```c
 	size_t commonPrefixSearch(const key_type *key,
 							  u4 flag,
                               T* result,
